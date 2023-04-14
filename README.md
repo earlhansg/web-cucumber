@@ -1,1 +1,14 @@
-# Selenium Cucumber Java BDD
+# Steps
+- Create a new maven project
+- Add maven dependencies
+  - Cucumber Java | Cucumber JUnit | Selenium Java
+- Create a folder Features under src/test/java/ehg/resources
+- Under features folder create a new feature file login.feature
+- Download cucumber plugin from Eclipse Marketplace
+- Create feature file and add contents
+- Try to run the feature file
+- Add Step Definitions / Glue Code under src/test/java package
+- Create a Runner class
+- Create Add Cucumber Options for generating reports
+  - HTML | JSON | JUNIT/XML
+ - Run and verify results
