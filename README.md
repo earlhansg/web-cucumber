@@ -1,14 +1,7 @@
 # Steps
-- Create a new maven project
-- Add maven dependencies
-  - Cucumber Java | Cucumber JUnit | Selenium Java
-- Create a folder Features under src/test/java/ehg/resources
-- Under features folder create a new feature file login.feature
-- Download cucumber plugin from Eclipse Marketplace
-- Create feature file and add contents
-- Try to run the feature file
-- Add Step Definitions / Glue Code under src/test/java package
-- Create a Runner class
-- Create Add Cucumber Options for generating reports
-  - HTML | JSON | JUNIT/XML
- - Run and verify results
+- Add Selenium Java maven dependency
+- Create a feature file and add Scenario and Steps
+- Create Step Definition/Glue Code for the steps
+- Download browser driver files
+- Add Selenium WebDriver code
+- Run Feature file and check the execution
