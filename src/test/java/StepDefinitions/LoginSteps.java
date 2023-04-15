@@ -1,5 +1,7 @@
 package StepDefinitions;
 
+import static org.junit.Assert.assertEquals;
+
 import java.time.Duration;
 
 import org.openqa.selenium.By;
@@ -28,23 +30,29 @@ public class LoginSteps {
 		driver.navigate().to("https://example.testproject.io/web/");
 	}
 
-	@When("user enters username and password")
-	public void user_enters_username_and_password() {
+	@When("^user enters (.*) and (.*)$")
+	public void user_enters_username_and_password(String username, String password) throws InterruptedException {
 		System.out.println("Inside Step - user enters username and password");
-		driver.findElement(By.cssSelector("input#name")).sendKeys("EarlHans");
-		driver.findElement(By.cssSelector("input#password")).sendKeys("12345");
+		System.out.println("Console" + username + password);
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector("input#name")).sendKeys(username);
+		Thread.sleep(5000);
+		driver.findElement(By.cssSelector("input#password")).sendKeys(password);
 	}
 
 	@When("clicks on login button")
-	public void clicks_on_login_button() {
+	public void clicks_on_login_button() throws InterruptedException {
 		System.out.println("Inside Step - click on login button");
+		Thread.sleep(5000);
 		driver.findElement(By.cssSelector("button#login")).click();
 	}
 
 	@Then("user is navigated to the home page")
-	public void user_is_navigated_to_the_home_page() {
+	public void user_is_navigated_to_the_home_page() throws InterruptedException {
 		System.out.println("Inside Step - user is navigate to homepage");
-		driver.findElement(By.cssSelector("button#logout")).isDisplayed();
+		Thread.sleep(5000);
+		Boolean logoutElement = driver.findElement(By.cssSelector("button#logout")).isDisplayed();
+		assertEquals(true, logoutElement);
 		driver.close();
 		driver.quit();
 	}
