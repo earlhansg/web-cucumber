@@ -5,7 +5,7 @@ import io.cucumber.junit.CucumberOptions;
 import io.cucumber.junit.Cucumber;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features="src/test/java/ehg/resources/features/GoogleSearch.feature", 
+@CucumberOptions(features="src/test/java/ehg/resources/features/login.feature", 
 glue= {"StepDefinitions"}, plugin = {"pretty", "html:target/HtmlReports"})
 public class TestRunner {
 
