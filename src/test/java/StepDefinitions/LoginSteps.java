@@ -8,18 +8,31 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 
 public class LoginSteps {
 	
 	WebDriver driver = null;
-
-	@Given("user browser is open")
-	public void user_browser_is_open() {
-		System.out.println("Inside Step - user browser is open");
-		System.out.println("Inside Step - browser is open");
+	
+	@Before
+	public void browserSetup() {
+		System.out.println("I'm inside browserSetup");
 		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\src\\drivers\\chromedriver.exe");
 		driver = new ChromeDriver();
+	}
+
+	@After
+	public void teardown() {
+		System.out.println("I'm inside teardown");
+		driver.close();
+		driver.quit();
+	}
+	
+	@Given("user browser is open")
+	public void user_browser_is_open() {
+		System.out.println("Inside Step - user browser is open");	
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 	}
@@ -53,7 +66,5 @@ public class LoginSteps {
 		Thread.sleep(5000);
 		Boolean logoutElement = driver.findElement(By.cssSelector("button#logout")).isDisplayed();
 		assertEquals(true, logoutElement);
-		driver.close();
-		driver.quit();
 	}
 }
